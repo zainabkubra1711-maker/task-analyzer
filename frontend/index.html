@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Task Analyzer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Smart Task Analyzer</h1>
+
+  <section id="input-section">
+    <h2>Add Task</h2>
+    <label>Title:
+      <input type="text" id="title">
+    </label>
+    <label>Due Date (YYYY-MM-DD):
+      <input type="text" id="due_date" placeholder="2025-11-30">
+    </label>
+    <label>Estimated Hours:
+      <input type="number" id="estimated_hours" value="1">
+    </label>
+    <label>Importance (1-10):
+      <input type="number" id="importance" value="5" min="1" max="10">
+    </label>
+    <button id="add-task-btn" type="button">Add Task to List</button>
+    <p>Current tasks in list: <span id="task-count">0</span></p>
+  </section>
+
+  <section id="bulk-section">
+    <h2>Or Paste JSON Tasks</h2>
+    <textarea
+      id="json-input"
+      rows="6"
+      placeholder='[
+  { "title": "Fix bug", "due_date": "2025-11-30", "estimated_hours": 3, "importance": 8 },
+  { "title": "Write docs", "due_date": "2025-12-05", "estimated_hours": 2, "importance": 6 }
+]'></textarea>
+  </section>
+
+  <section id="strategy-section">
+    <h2>Strategy</h2>
+    <select id="strategy">
+      <option value="smart_balance">Smart Balance</option>
+      <option value="fastest">Fastest Wins</option>
+      <option value="high_impact">High Impact</option>
+      <option value="deadline">Deadline Driven</option>
+    </select>
+    <button id="analyze-btn" type="button">Analyze Tasks</button>
+    <p id="status"></p>
+  </section>
+
+  <section id="output-section">
+    <h2>Results</h2>
+    <div id="results"></div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
